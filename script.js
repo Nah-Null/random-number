@@ -23,4 +23,37 @@ function count() {
 }
 
 
+function photo() {
+    // ใช้ prompt เพื่อขอ URL จากผู้ใช้
+    const userNumber = prompt("กรุณาใส่ URL ของรูปภาพ:");
+
+    // ตรวจสอบว่า URL มีค่าหรือไม่
+    if (!userNumber) {
+        alert("คุณไม่ได้ใส่ URL ของรูปภาพ!");
+        return;
+    }
+
+    // สร้างแท็ก <img> ใหม่
+    const img = document.createElement("img");
+    img.src = userNumber;
+    img.alt = "User Input Image";
+
+    // สุ่มตำแหน่ง
+    const randomX = Math.random() * 80; // สุ่มตำแหน่ง X (เป็นเปอร์เซ็นต์)
+    const randomY = Math.random() * 80; // สุ่มตำแหน่ง Y (เป็นเปอร์เซ็นต์)
+
+    // กำหนดสไตล์ให้รูปภาพ (ตำแหน่งและขนาด)
+    img.style.position = "absolute";
+    img.style.left = `${randomX}%`; // ตั้งค่าตำแหน่ง X
+    img.style.top = `${randomY}%`;  // ตั้งค่าตำแหน่ง Y
+    img.style.maxWidth = "100px"; // ขนาดสูงสุดของรูปภาพ
+    img.style.maxHeight = "100px"; // ขนาดสูงสุดของรูปภาพ
+
+    // เพิ่มรูปภาพลงใน div โดยไม่ลบรูปเก่า
+    document.getElementById("user_number").appendChild(img);
+}
+
+
+
+
 
