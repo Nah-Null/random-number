@@ -24,7 +24,14 @@ function count() {
 
 
 function photo() {
-    const userNumber = document.getElementById("user_input").value;
+    // ใช้ prompt เพื่อขอ URL จากผู้ใช้
+    const userNumber = prompt("กรุณาใส่ URL ของรูปภาพ:");
+
+    // ตรวจสอบว่า URL มีค่าหรือไม่
+    if (!userNumber) {
+        alert("คุณไม่ได้ใส่ URL ของรูปภาพ!");
+        return;
+    }
 
     // สร้างแท็ก <img> ใหม่
     const img = document.createElement("img");
@@ -45,6 +52,7 @@ function photo() {
     // เพิ่มรูปภาพลงใน div โดยไม่ลบรูปเก่า
     document.getElementById("user_number").appendChild(img);
 }
+
 
 
 
